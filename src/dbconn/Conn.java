@@ -1,4 +1,4 @@
-package connection;
+package dbconn;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ public class Conn {
 
     public static Connection getConnection() {
         try {
-            if (conn != null) {
+            if (conn == null) {
                 conn = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
                 return conn;
             }

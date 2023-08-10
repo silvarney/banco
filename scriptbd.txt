@@ -1,0 +1,33 @@
+-- -----------------------------------------------------
+-- Schema agenda
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `agenda` DEFAULT CHARACTER SET utf8 ;
+USE `agenda` ;
+
+-- -----------------------------------------------------
+-- Table `agenda`.`clients`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `agenda`.`clients` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `age` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `agenda`.`accounts`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `agenda`.`accounts` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `client_id` INT NOT NULL,
+  `bank` VARCHAR(45) NULL,
+  `number` VARCHAR(45) NULL,
+  `balance` DECIMAL(7,2) NULL,
+  `status` TINYINT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+CREATE INDEX `fk_accounts_clients_idx` ON `agenda`.`accounts` (`client_id` ASC) VISIBLE;
+
+

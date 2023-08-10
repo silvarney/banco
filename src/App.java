@@ -1,10 +1,12 @@
-import model.Current;
+import dao.ClientDAO;
+import model.Client;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Current cc = new Current();
-        cc.setNumber("001");
-        cc.withdraw(200);
-        cc.extract();
+        Client client = new Client();
+        client.setName("Silvarney Henrique");
+        client.setAge(37);
+
+        new ClientDAO().save(client);
     }
 }
